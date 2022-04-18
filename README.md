@@ -7,7 +7,7 @@ A local reading material management tool
 * Maintain a tagged list of books you want to read
 * Keep currently-reading books in a docker
 * Add comments on a certain book, and a place to put what you'ver read at the end, along with reviews for it
-* Add a CSV file of articles (Wikipedia, Britannica, Blog articles, Other things) then have the software present you with one aritgcle a day until they are all done
+* Add a CSV file of articles (Wikipedia, Britannica, Blog articles, Other things), then have the software present you with one article a day until they are all done
 ** Break the articles into chunks based on text?
 
 # Feature Implementation Plan:
