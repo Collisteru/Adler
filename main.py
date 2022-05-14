@@ -39,7 +39,7 @@ class MainWindow:
 
         # Add Label
 
-        self.label = tk.Label(master, text="The Book Management Program")
+        self.label = tk.Label(master, text="The Book Management Program", fg="blue", bg="#c0c2ae")
         self.label.place(x=(WIDTH/2), y = 0)
 
         # Add Main Booklist from initial list given in instructor
@@ -65,6 +65,9 @@ class MainWindow:
 
         booklistbox = tk.Listbox(booklistframe, width = 40, height = 13, yscrollcommand = scrollbar.set) # TODO: Consider hardcoding width or making it variable based on a larger root value 
 
+
+        # POPULATING BOOKISTBOX WITH ITEMS FROM SOURCEBOOKLIST
+
         for index, book in enumerate(sourceBookList):
             booklistbox.insert(tkinter.END, book.strip()) 
 
@@ -75,16 +78,10 @@ class MainWindow:
         booklistbox.config(yscrollcommand = scrollbar.set)
         scrollbar.config(command = booklistbox.yview)
 
-
-# A few issues:
-## The scrollbar shows up as tiny
-## It shows up on the left side -- SORT OF FIXED
-## It doesn't properly control the movement of booklistbox
-
-
+        # ADD BOOK BUTTON AND FUNCTIONS
 
         B = tk.Button(root, text="Add Book", command = lambda: MainWindow.addBookPrompt(self, root, booklistbox)) # Note that we only list the addBook function (no parantheses), we do not actually invoke it by listing the name with parantheses.
-        B.place(x = (WIDTH / 2) + 60, y = 300)
+        B.place(x = 60, y = 300)
 
     def addBookPrompt(self, root, booklistbox): # The function that the add book button activates. It gets a new book from the user and passes it to addBook
         newBook = tk.simpledialog.askstring( "AddBookPrompt", "Which book would you like to add?")
@@ -93,6 +90,9 @@ class MainWindow:
     def addBook(self, newBook, booklistbox):
         booklistbox.insert(tkinter.END, newBook) 
         sourceBookList.append(newBook)
+
+
+
 
 class Book:
     def __init__(self, title, tags):
@@ -107,24 +107,43 @@ class Book:
         for tag in self.tags:
             print(tag)
 
+    def addTag(self, tag):
+        self.tags.append(tag)
+        print("appended tag {0} to {1}".format(tag, self.title))
+
+    # Pass in the top level in the window hierarchy as root
+    def infoPopup(self, root):
+        print("inside infoPopup!")
+        newWindow = tk.Toplevel()
+        newWindow.attributes('-topmost', 'true') # This keeps newWindow on top of all other windows in the tkinter application
+        newWindow.title("Modify {0}".format(self.title))
+        newWindow.geometry("200x200")
+        tk.Label(newWindow, text="You are modifying {0}.".format(self.title))
+        newWindow.grab_set()
+
+
 # Set tkinter root
 
 root = tk.Tk()
 
 # Set source of book information
 
+# At the moment souceBookList is just a list of bare strings representing the titels
 sourceBookList = parse_source(SOURCE) # Parse_source is the function that introduces he extra characters
 
-# TESTING THE NEW BOOK OBJECT:
-
-riceBookTags = ["cooking", "practical skills", "how-to", "asian culture"]
-riceBook = Book("How to cook rice", riceBookTags)
-riceBook.printBook()
+# Create book objects and add them to the bookArr array based on sourceBookList
+bookArr = []
+for item in sourceBookList:
+    bookArr.append(Book(item, []))
 
 
 # Draw Main Window
 
 window = MainWindow(root, sourceBookList)
+
+# Test Book Popup
+
+bookArr[0].infoPopup(root)
 
 # GUI Event Loop
 
