@@ -1,0 +1,6 @@
+Source2.txt|info, helpful, notabook|5.0
+of|hello1|3.2
+the|hello2|1.1
+Fallen|hello3|2.3
+Talamo|test4|4.5
+Proliferation|test5|5.0

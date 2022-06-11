@@ -1,0 +1,69 @@
+ATTRLIST:  ['Source2.txt', ['info', ' helpful', ' notabook'], '5.0\n']
+ATTRLIST:  ['of', ['hello1'], '3.2\n']
+ATTRLIST:  ['the', ['hello2'], '1.1\n']
+ATTRLIST:  ['Fallen', ['hello3'], '2.3\n']
+ATTRLIST:  ['Talamo', ['test4'], '4.5\n']
+ATTRLIST:  ['Proliferation', ['test5'], '5.0\n']
+[['Source2.txt', ['info', ' helpful', ' notabook'], 5.0], ['of', ['hello1'], 3.2], ['the', ['hello2'], 1.1], ['Fallen', ['hello3'], 2.3], ['Talamo', ['test4'], 4.5], ['Proliferation', ['test5'], 5.0]]
+parent .!scrollableframe.!canvas.!frame
+title Source2.txt
+tags ['info', ' helpful', ' notabook']
+index 1
+rating 5.0
+parent .!scrollableframe.!canvas.!frame
+title of
+tags ['hello1']
+index 2
+rating 3.2
+parent .!scrollableframe.!canvas.!frame
+title the
+tags ['hello2']
+index 3
+rating 1.1
+parent .!scrollableframe.!canvas.!frame
+title Fallen
+tags ['hello3']
+index 4
+rating 2.3
+parent .!scrollableframe.!canvas.!frame
+title Talamo
+tags ['test4']
+index 5
+rating 4.5
+parent .!scrollableframe.!canvas.!frame
+title Proliferation
+tags ['test5']
+index 6
+rating 5.0
+type(book[1]) <class 'list'>
+book[1]:  ['info', ' helpful', ' notabook']
+branch one
+branch one
+branch two
+Hello, line 67?
+['Source2.txt', ['info', ' helpful', ' notabook'], 5.0]
+type(book[1]) <class 'list'>
+book[1]:  ['hello1']
+branch two
+Hello, line 67?
+['of', ['hello1'], 3.2]
+type(book[1]) <class 'list'>
+book[1]:  ['hello2']
+branch two
+Hello, line 67?
+['the', ['hello2'], 1.1]
+type(book[1]) <class 'list'>
+book[1]:  ['hello3']
+branch two
+Hello, line 67?
+['Fallen', ['hello3'], 2.3]
+type(book[1]) <class 'list'>
+book[1]:  ['test4']
+branch two
+Hello, line 67?
+['Talamo', ['test4'], 4.5]
+type(book[1]) <class 'list'>
+book[1]:  ['test5']
+branch two
+Hello, line 67?
+['Proliferation', ['test5'], 5.0]

@@ -1,0 +1,18 @@
+
+        # CREATE SCROLLBAR IN THE BOOKLISTFRAME
+
+#        scrollbar = tk.Scrollbar(booklistframe, orient="vertical") 
+#        scrollbar.place(x = 400-16, y = 4) 
+#        scrollbar.pack(side="left",fill="both", expand="true")
+
+
+
+
+
+
+
+
+
+
+        # Disable booklistframe
+#         booklistframe = tk.Listbox(booklistframe, width = 40, height = 13, yscrollcommand = scrollbar.set) # TODO: Consider hardcoding width or making it variable based on a larger root value 

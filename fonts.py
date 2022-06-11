@@ -11,7 +11,7 @@ def populate(frame):
     listnumber = 1
     print("len(fonts): ", len(fonts))
     for index, item in enumerate(fonts): # This prints only the first 80 fonts. There are about 500, printing all of them breaks tkinter.
-        if(index <= 200):
+        if(index <= 400):
             label = "listlabel" + str(index)
             label = Label(frame,text=item,font=(item, 16)).pack()
         else:

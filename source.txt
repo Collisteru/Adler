@@ -1,3 +1,8 @@
-One
-Two
-Three
+Genesis|god, people, life,earthearth|100.0
+Leviticus|god, people, laws laws|20.0
+The Selfish Gene|Dawkins, science, biology biology|100.0
+Harry Potter|fiction,magic,school|100.0
+Malazan|fantasy,fiction|100.0
+Mistake|odd,ball|5.0
+Another|thing,added|10.0
+One|two, three, four|5.6
