@@ -1,0 +1,9 @@
+Exception in Tkinter callback
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/tkinter/__init__.py", line 1892, in __call__
+    return self.func(*args)
+  File "/home/sean/Documents/Programs/Adler/others.py", line 129, in <lambda>
+    B = tk.Button(root, text="Add Book", command = lambda: MainWindow.addBookPrompt(self, root, booklistframe)) # Note that we only list the addBook function (no parantheses), we do not actually invoke it by listing the name with parantheses.
+  File "/home/sean/Documents/Programs/Adler/others.py", line 146, in addBookPrompt
+    MainWindow.addBook(self, newBook, tagList, booklistframe, rating, sourceBookList)
+NameError: name 'sourceBookList' is not defined

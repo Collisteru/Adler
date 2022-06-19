@@ -1,0 +1,8 @@
+/usr/lib/python3/dist-packages/requests/__init__.py:89: RequestsDependencyWarning: urllib3 (1.26.8) or chardet (4.0.0) doesn't match a supported version!
+  warnings.warn("urllib3 ({}) or chardet ({}) doesn't match a supported "
+Traceback (most recent call last):
+  File "main.py", line 24, in <module>
+    root.protocol("WM_DELETE_WINDOW", on_closing(root, window.sourceBookList, SOURCE))
+  File "/usr/lib/python3.8/tkinter/__init__.py", line 2197, in wm_protocol
+    return self.tk.call(
+_tkinter.TclError: can't invoke "wm" command: application has been destroyed
