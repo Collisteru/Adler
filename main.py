@@ -1,20 +1,17 @@
 ## FILE MAIN.PY
+# !/usr/bin/python3
+
 
 from others import *
-from miscfuncs import *
+from setup import *
 
 ## DIAGNOSTICS
 
 # import json
 # print(globals())
 
-
-bookArr = []
-
-root = tk.Tk() # Set tkinter root
-
-# Format: {{title, {tag1, tag2, tag3}}... } This is stored in sourcebooklist
-sourceBookList = parse_source(SOURCE) # Parse_source is the function that introduces the extra characters
+# Printing definitely works!
+# print("printTest")
 
 window = MainWindow(root, sourceBookList, root) # Draw Main Window
 

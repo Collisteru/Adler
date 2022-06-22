@@ -1,8 +1,24 @@
-# MISCFUNCS
+# SETUP.PY
+# This file is at the top of the hierarchy. It does not import any internal libraries.
+
+import random
+import time
+
+import tkinter as tk
+import tkinter.ttk as ttk
+from tkinter.constants import *
+
+from tkinter import messagebox
+import tkinter.simpledialog
+from tkinter import scrolledtext
 
 
-# Precondition: Sourcefile of the correct format title|tag1,tag2|100.0
-# Postcondition format: {{title, {tag1, tag2, tag3}}... } This is stored in sourcebooklist
+
+
+"""
+Precondition: Sourcefile of the correct format title|tag1,tag2|100.0
+Postcondition format: {{title, {tag1, tag2, tag3}}... } This is stored in sourcebooklist
+"""
 def parse_source(SOURCE):
     with open(SOURCE, 'r+') as src:
         lines = src.readlines()
@@ -25,8 +41,10 @@ def parse_source(SOURCE):
             attrList[2] = float(attrList[2].strip())
     return bookList
 
-# We undo the operation of parse_source, "unwinding" each book back into a consistuent string we can save it in
-# sourceBookList is the master list of books that the program manages
+"""
+We undo the operation of parse_source, "unwinding" each book back into a consistuent string we can save it in
+sourceBookList is the master list of books that the program manages
+"""
 def write_source(SOURCE, sourceBookList):
     with open(SOURCE, 'r+') as src:
         for book in sourceBookList: # Consider replacing with writelines

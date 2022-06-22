@@ -12,9 +12,10 @@ A local reading material management tool
 
 # Feature Implementation Plan:
 
-* Begin with Tkinter GUI. Create a space for displaying books and make sure that it can display an infinitely long list of books
-* Next, make this list tied to a file in the same folder
-* Next, make functions for adding and taking away books from the list
-* Add tagging functionality
+* Begin with Tkinter GUI. Create a space for displaying books and make sure that it can display an infinitely long list of books -- DONE
+* Next, make this list tied to a file in the same folder -- DONE
+* Next, make functions for adding and taking away books from the list -- DONE
+* Add tagging functionality -- DONE
+* Add a way to edit a book: its title, tags, rating, etc.
 * Add searching by tag
 * You already have a good product right there. 

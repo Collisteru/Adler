@@ -1,37 +1,24 @@
-# !/usr/bin/python3
-# TODO: FINISH GRAPHICAL EXPRESSION OF BOOK OBJECT: Title and many tag labels and a button that brings up the book modify screen. Then, turn bookistbox into a scrollable canvas with instances of that object inside
+# OTHERS.PY
 
-import random
 
-import tkinter as tk
-import tkinter.ttk as ttk
-from tkinter.constants import *
 
-from tkinter import messagebox
-import tkinter.simpledialog
-from tkinter import scrolledtext
-
-from miscfuncs import *
+from setup import *
 from tagLabel import *
 from titleLabel import *
 
-TESTSOURCE = "./source2.txt"
-SOURCE = "./source.txt"
 HEIGHT = 600
 WIDTH = 400
-
-
 # We only have one column of books, so we can make currRow global
 currRow = 0
-
 
 # CLASS SCROLLABLE FRAME
 
 
-
-# Based on
-#   https://web.archive.org/web/20170514022131id_/http://tkinter.unpythonic.net/wiki/VerticalScrolledFrame
-#   https://stackoverflow.com/questions/47850849/how-to-convert-this-example-from-python2-to-python3
+"""
+Based on
+   https://web.archive.org/web/20170514022131id_/http://tkinter.unpythonic.net/wiki/VerticalScrolledFrame
+   https://stackoverflow.com/questions/47850849/how-to-convert-this-example-from-python2-to-python3
+"""
 class ScrollableFrame(ttk.Frame):
     """A pure Tkinter scrollable frame that actually works!
     * Use the 'interior' attribute to place widgets inside the scrollable frame.
@@ -80,15 +67,6 @@ class ScrollableFrame(ttk.Frame):
             canvas.itemconfigure(interior_id, width=canvas.winfo_width())
             canvas.bind('<Configure>', _configure_canvas)
 
-    # self: The calling object
-    # bookstr: the title of the book to insert
-    # taglist: a list of strings represeting the list of tags
-    # Depracated now I think?
-    def insert(self, bookStr, tagList):
-        pass
-        # print("self.currRow: ", self.currRow)
-        # self.currRow += 1
-        # newBook = Book(self.interior, bookStr, tagList, self.currRow) 
 
 
 # CLASS MAINWINDOW
@@ -126,15 +104,17 @@ class MainWindow:
             tagList = item[1]
             rating = item[2]
             newBook = Book(booklistframe.interior, title, tagList, index+1, rating) 
-
+            BookList.append(newBook)
 
         # ADD BOOK BUTTON AND FUNCTIONS
 
         B = tk.Button(root, text="Add Book", command = lambda: MainWindow.addBookPrompt(self, root, booklistframe)) # Note that we only list the addBook function (no parantheses), we do not actually invoke it by listing the name with parantheses.
         B.place(x = 60, y = 300)
 
-    # Creates a dialogue exchange to collect information to construct a new book
-    # Passes this information to addBook
+    """
+    Creates a dialogue exchange to collect information to construct a new book
+    Passes this information to addBook
+    """
     def addBookPrompt(self, root, booklistframe): # The function that the add book button activates. It gets a new book from the user and passes it to addBook
         global sourceBookList
         newBook = tk.simpledialog.askstring( "AddBookPrompt", "Which book would you like to add?")
@@ -157,19 +137,22 @@ class MainWindow:
             tag = tag.strip()
         return tagList 
 
-    #Precondition:
-    #   NewBookName is a string representing the name of the new book
+    #precondition:
+    #   newbookname is a string representing the name of the new book
     #   tags is a list of strings representing the tags the book should have
     #   booklistframe is the scrollable frame that the book should appear in
     #   rating is a double ranging from 0 to 100 representing the book's quality
-    #   sourceBookList is the master list of books the program manages
-    #Poscondition:
+    #   sourcebooklist is the master list of books the program manages
 
-    #   This function adds a string to sourceBookList that looks like this:
+
+    #poscondition:
+
+    #   this function adds a string to sourcebooklist that looks like this:
     #   ['title', ['tag1','tag2','tag3'], 100.0]
 
     def addBook(self, newBookName, tags, booklistframe, rating, sourceBookList):
         newBook = Book(booklistframe.interior, newBookName, tags, 0, rating) 
+        BookList.append(newBook)
         attrList = []
         attrList.append(newBookName) # Append title
         attrList.append(tags)
@@ -177,6 +160,9 @@ class MainWindow:
         sourceBookList.append(attrList)
 
     # Shows the user a popup window explaining that they made an input error
+    """
+    TODO: Modify this so that the user can cancel inputting the information by (for example) closing the window or pressing "cancel."
+    """
     def inputErr(self):
         tk.messagebox.showerror("Wrong input.", "Wrong input format. Try Again.")
 
@@ -186,13 +172,14 @@ class MainWindow:
 
 # Class representing the book as it appears in booklistframe.
 class Book(tk.Frame):
+    tags = []
     # parent: parent in which to pack
     # title: the title of the book
     # tags: a list of strings representing the book's tags
     # index: the number of the book to be inserted
-    def __init__(self, parent, title, tags, index, rating):
-        self.title = title
+    def __init__(self, parent, Title, tags, index, rating):
         global currRow # Make sure to declare currRow as global within the class
+        self.title = Title
         currRow += 1;
         if(index == 0):
             index = currRow
@@ -203,18 +190,30 @@ class Book(tk.Frame):
 
         # Arrange layout
 
-        self.titleLabel = titleLabel(title, parent, index)
-
-    title = ''
-    tags = []
+        self.titleLabel = titleLabel(Title, parent, index)
 
     def printBook(self):
         print("{0} has the following tags: ".format(self.title))
         for tag in self.tags:
             print(tag)
 
+    def getTitle(self):
+        return self.title
+
+    def getTags(self):
+        return self.tags
+
+    # Currently Untested
+    def setTitle(self, newTitle):
+        self.title = newTitle
+        self.titleLabel.setTitle = newTitle
+
+    def setTags(self, newTags):
+        self.tags = newTags
+
     def addTag(self, tag):
         self.tags.append(tag)
+
 
     # Add info popup that triggers when you click on a book
 
@@ -223,18 +222,9 @@ class Book(tk.Frame):
         newWindow = tk.Toplevel()
         newWindow.attributes('-topmost', 'true') # This keeps newWindow on top of all other windows in the tkinter application
         newWindow.title("Modify {0}".format(self.title))
-        newWindow.geometry("200x200")
-        tk.Label(newWindow, text="You are modifying {0}.".format(self.title))
-        newWindow.grab_set()
+        newWindow.geometry("300x300")
+        label = tk.Label(newWindow, text="You are modifying {0}.".format(self.title))
+        label.grid(row=0, column=0)
 
-
-
-def debugWindow():
-    # Create a debugging Winow
-
-    debugWindow = tk.Toplevel()
-    debugWindow.attributes('-topmost', 'true') 
-    debugWindow.title("Debug Window")
-    debugWindow.geometry("200x200")
-
-
+        # Grab_set prevents users from interacting with the original window.  At the moment it causes bugs, so we will not use it.
+        # newWindow.grab_set()

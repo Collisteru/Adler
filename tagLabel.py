@@ -1,16 +1,4 @@
-import random
-
-import tkinter as tk
-import tkinter.ttk as ttk
-from tkinter.constants import *
-
-from tkinter import messagebox
-import tkinter.simpledialog
-from tkinter import scrolledtext
-
-from miscfuncs import *
-from tagLabel import *
-
+from setup import *
 
 class tagLabel(tk.Frame):
     def __init__(self, text, parent, myRow, myColumn):

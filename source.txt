@@ -3,3 +3,6 @@ Leviticus|god, people, laws laws|20.0
 The Selfish Gene|Dawkins, science, biology biology|100.0
 Harry Potter|fiction,magic,school|100.0
 Malazan|fantasy,fiction|100.0
+Dune|science-fiction, ecology, space-opera|10.0
+Test|1|2.0
+Star Wars|sci-fi, fiction|10.0
