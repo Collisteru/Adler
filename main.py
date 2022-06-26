@@ -2,8 +2,8 @@
 # !/usr/bin/python3
 
 
+
 from others import *
-from setup import *
 
 ## DIAGNOSTICS
 

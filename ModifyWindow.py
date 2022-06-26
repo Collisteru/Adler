@@ -2,7 +2,8 @@
 
 
 from setup import *
-
+from Book import *
+import query
 
 class ModifyWindow():
     newWindow = 0
@@ -19,9 +20,17 @@ class ModifyWindow():
         """ These both desparately need testing! """
 
 
+        # Commands aren't working...
         print("In ModifyWindow: self.Book: ", self.Book)
-        changeTitle = tk.Button(self.newWindow, text="Change Title", command = self.Book.setTitle("ButtonTitle"))
+
+        # What functions should I put here to change the title of the books? 
+        changeTitle = tk.Button(self.newWindow, text="Change Title", command = lambda :Book.setTitle(self))
         changeTitle.grid(row=1, column=0)
 
-        changeTags = tk.Button(self.newWindow, text="Change Tags", command = self.Book.setTags("ButtonTags"))
+
+        changeTags = tk.Button(self.newWindow, text="Change Tags", command = lambda :Book.setTags(self))
         changeTags.grid(row=2, column=0)
+
+
+    def testFunc():
+        pritn("Hello, ModifyWindow testFunc!")

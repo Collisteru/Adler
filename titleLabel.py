@@ -3,10 +3,11 @@
 
 
 from source import *
-from setup import *
 from tagLabel import *
+# What does this module need from others, anyway?
 from others import *
 from ModifyWindow import *
+
 
 
 class titleLabel(tk.Frame):
@@ -24,8 +25,9 @@ class titleLabel(tk.Frame):
         label.config(background="gray")
 
     def setTitle(self, newTitle):
+        print("Called with newTitle {0}".format(newTitle))
         self.title = newTitle
-        
+
     def get_myBook(self, myRow):
         return BookList[myRow-1]
 

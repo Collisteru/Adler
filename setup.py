@@ -1,4 +1,7 @@
 # SETUP.PY
+
+
+
 # This file is at the top of the hierarchy. It does not import any internal libraries.
 
 import random
@@ -13,6 +16,7 @@ import tkinter.simpledialog
 from tkinter import scrolledtext
 
 
+currRow = 0
 
 
 """
@@ -55,14 +59,12 @@ def write_source(SOURCE, sourceBookList):
                     tagString = tagString + tag + ","
                 else:
                     tagString = tagString + tag
-            # TODO: THERE IS AN ERROR AROUND HERE SOMEWHERE RELATED TO WRITING BOOKS IN THE FILE WHEN WE'VE ADDED A NEW BOOK. YOUR TOP PRIORITY IS TO FIGURE THIS OUT.
             try:
                 line = book[0] + "|" + tagString + "|" + str(book[2])
                 src.write(line)
                 src.write('\n')
             except: 
                 print("Could not save {0}".format(str(book))) # Defeats stripping exceptions for malformed lines. This is a debugging tool.
-
 
 def on_closing(root, sourceBookList, SOURCE):
     write_source(SOURCE, sourceBookList)

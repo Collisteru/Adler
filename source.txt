@@ -6,3 +6,7 @@ Malazan|fantasy,fiction|100.0
 Dune|science-fiction, ecology, space-opera|10.0
 Test|1|2.0
 Star Wars|sci-fi, fiction|10.0
+Test|test,new|10.0
+Test2|test,2|10.0
+The Autobiography of Eliezer Yudkowsky|biography, rationality|8.0
+THe Way f Kings, by Brandn Sandersn|eicfantasy,adventure,actin|1.0

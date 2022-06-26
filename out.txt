@@ -1,0 +1,28 @@
+python main.py
+Exception in Tkinter callback
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/tkinter/__init__.py", line 1892, in __call__
+    return self.func(*args)
+TypeError: <lambda>() missing 1 required positional argument: 'text'
+Exception in Tkinter callback
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/tkinter/__init__.py", line 1892, in __call__
+    return self.func(*args)
+TypeError: <lambda>() missing 1 required positional argument: 'text'
+Exception in Tkinter callback
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/tkinter/__init__.py", line 1892, in __call__
+    return self.func(*args)
+TypeError: <lambda>() missing 1 required positional argument: 'text'
+Exception in Tkinter callback
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/tkinter/__init__.py", line 1892, in __call__
+    return self.func(*args)
+TypeError: <lambda>() missing 1 required positional argument: 'text'
+Exception in Tkinter callback
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/tkinter/__init__.py", line 1892, in __call__
+    return self.func(*args)
+TypeError: <lambda>() missing 1 required positional argument: 'text'
+INFINITE?
+In ModifyWindow: self.Book:  .!scrollableframe.!canvas.!frame.!book12
