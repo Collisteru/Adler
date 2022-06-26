@@ -22,6 +22,7 @@ currRow = 0
 """
 Precondition: Sourcefile of the correct format title|tag1,tag2|100.0
 Postcondition format: {{title, {tag1, tag2, tag3}}... } This is stored in sourcebooklist
+Postcondition: List of Book objects corresponding to the 
 """
 def parse_source(SOURCE):
     with open(SOURCE, 'r+') as src:

@@ -52,7 +52,6 @@ class query():
             # CALL TO BOOK API GOES HERE
             # origin not specified
             self.origin.setTitle(self.fieldInput)
-
             # Just in case :D
             return self.fieldInput
 
