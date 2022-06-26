@@ -25,8 +25,8 @@ class titleLabel(tk.Frame):
         label.config(background="gray")
 
     def setTitle(self, newTitle):
-        print("Called with newTitle {0}".format(newTitle))
         self.title = newTitle
+        self.t.config(text=newTitle) # Actually change titleLabel representation
 
     def get_myBook(self, myRow):
         return BookList[myRow-1]
@@ -35,13 +35,12 @@ class titleLabel(tk.Frame):
         tk.Frame.__init__(self, parent)
         self.title = text
         self.row = myRow
-        t = tk.Label(parent, bg="gray", text=text, font=("FreeSerif", 15), anchor="w", fg="black", width=15, height=2)
-        a = 5
+        self.t = tk.Label(parent, bg="gray", text=text, font=("FreeSerif", 15), anchor="w", fg="black", width=15, height=2)
 
         # Really, clicking on a label should activate the function to bring up the book info popup
         # (Why do we have to list t twice? Why is the first parameter ignored?
 
-        t.bind("<Button-1>", lambda e:self.displayBookWindow(self.get_myBook(myRow), t, myRow))
-        t.bind('<Enter>', lambda e:self.on_enter(t, t))
-        t.bind('<Leave>', lambda e:self.on_leave(t, t))
-        t.grid(row = myRow, column = 0)
+        self.t.bind("<Button-1>", lambda e:self.displayBookWindow(self.get_myBook(myRow), self.t, myRow))
+        self.t.bind('<Enter>', lambda e:self.on_enter(self.t, self.t))
+        self.t.bind('<Leave>', lambda e:self.on_leave(self.t, self.t))
+        self.t.grid(row = myRow, column = 0)

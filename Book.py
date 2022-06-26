@@ -37,11 +37,14 @@ class Book(tk.Frame):
     def getTags(self):
         return self.tags
 
-    # Currently Untested
+
+    # Makes a query object that can later call this object's setTitle() method.
+    def makeTitleQuery(self):
+        titleQuery = query("Edit Title", "What should the new title be?", origin = self)
+
+    # Called by a query method we've made with makeTitleQuery
     def setTitle(self, newTitle):
-        titleQuery = query("Edit Title", "What should the new title be?")
-        newTitle = titleQuery.getFieldInput()
-        # newTitle is ____. Why? (2022-06-25)
+        oldTitle = self.title
         self.title = newTitle
         self.titleLabel.setTitle(newTitle)
 

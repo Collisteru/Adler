@@ -39,9 +39,8 @@ def parse_source(SOURCE):
                 attrList[1] = tagList;
                 bookList.append(attrList)
             except:
+                pass
                 # Consider adding a crash function for really bad exceptions
-                print("Exception found; malformed attrList? See below: ")
-                print(attrList)
             attrList[2] = float(attrList[2].strip())
     return bookList
 

@@ -20,17 +20,15 @@ class ModifyWindow():
         """ These both desparately need testing! """
 
 
-        # Commands aren't working...
-        print("In ModifyWindow: self.Book: ", self.Book)
 
         # What functions should I put here to change the title of the books? 
-        changeTitle = tk.Button(self.newWindow, text="Change Title", command = lambda :Book.setTitle(self))
+        # BOOK MUST MAKE TITLECHANGEQUERY WHEN IT WANTS TO SET A TITLE
+        changeTitle = tk.Button(self.newWindow, text="Change Title", command = lambda: Book.makeTitleQuery())
         changeTitle.grid(row=1, column=0)
 
 
-        changeTags = tk.Button(self.newWindow, text="Change Tags", command = lambda :Book.setTags(self))
+        changeTags = tk.Button(self.newWindow, text="Change Tags", command = lambda: Book.setTags(self))
         changeTags.grid(row=2, column=0)
-
 
     def testFunc():
         pritn("Hello, ModifyWindow testFunc!")
